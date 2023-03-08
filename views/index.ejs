@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <%- include ("partials/header") %>
+    <link rel="stylesheet" href="/style/style.css" />
     <title>首頁</title>
-    <link rel="stylesheet" href="../public/style.css" />
   </head>
   <body>
     <%- include ("partials/nav") %>
@@ -19,7 +19,7 @@
           type="button"
           style="color: rgb(0, 0, 0)"
         >
-          學習如何製作網站！
+          <a href="/auth/login"> 寫下我的詩</a>
         </button>
       </div>
     </div>
@@ -28,5 +28,41 @@
         使用Google帳號或直接註冊帳號，登入後可以寫下隨筆，系統將會記錄你的儲存時間!
       </p>
     </div>
+    <div class="slideshow-container">
+      <div class="mySlides">
+        <h5>使用工具</h5>
+        <p>Node.js, Express.js, EJS,Restful API</p>
+      </div>
+      <div class="mySlides">
+        <h5>使用套件</h5>
+        <p>Oauth2.0,passport,bcrypt</p>
+      </div>
+      <div class="mySlides">
+        <p>我好慘</p>
+      </div>
+    </div>
+    <div class="dot-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <script>
+      let slideIndex = 0;
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000); // 更改时间间隔
+      }
+      showSlides();
+    </script>
   </body>
 </html>

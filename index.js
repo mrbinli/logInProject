@@ -9,6 +9,7 @@ require("./config/passport");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
+const path = require("path");
 //連接mongoose
 mongoose
   .connect("mongodb://127.0.0.1/GoogleDB")
@@ -32,7 +33,7 @@ app.use(
   })
 );
 // 設定 public 資料夾路徑
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 //開始運行passport
 app.use(passport.initialize());
 app.use(passport.session());

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <%- include ("partials/header") %>
+    <link rel="stylesheet" href="/style/style.css" />
     <title>個人檔案頁面</title>
     <style>
       .posts {
@@ -11,6 +12,8 @@
         border-radius: 50%;
         display: inline-block;
         padding: 1rem 0.5rem;
+        max-width: 120px;
+        max-height: 120px;
       }
       section.user-info h1 {
         padding: 1rem 0.5rem;
@@ -22,29 +25,36 @@
     </style>
   </head>
   <body>
-    <%- include ("partials/nav") %>
-    <section class="user-info">
-      <div class="flex-container">
-        <img src="<%=user.thumbnail%>" alt="個人圖片" />
-        <h1><%= user.name %>的個人檔案頁面</h1>
-      </div>
-      <ul>
-        <li>Google的ID為： <%= user.googleID %></li>
-        <li>登入時間為：<%= user.date %></li>
-      </ul>
-    </section>
-    <section class="posts">
-      <% for (let i = 0 ; i < posts.length ; i++) { %>
-      <div class="card" style="width: 18rem; margin: 1rem">
-        <div class="card-body">
-          <h5 class="card-title fw-bold"><%= posts[i].title%></h5>
-          <p class="card-text" style="white-space: pre-line">
-            <%-posts[i].content%>
-          </p>
-          <a href="#" class="btn btn-info"><%=posts[i].date%></a>
+    <%- include ("partials/nav")-%>
+    <div class="filter">
+      <section class="user-info">
+        <div class="flex-container">
+          <img src="<%=user.thumbnail%>" alt="個人圖片" />
+          <h1><%= user.name %>的個人檔案頁面</h1>
         </div>
-      </div>
-      <% } %>
-    </section>
+        <ul>
+          <li>Google的ID為： <%= user.googleID %></li>
+          <li>登入時間為：<%= user.date %></li>
+        </ul>
+      </section>
+      <section class="posts">
+        <% for (let i = 0 ; i < posts.length ; i++) { %>
+        <div class="car">
+          <div class="card-body">
+            <h5 class="cardt"><%= posts[i].title%></h5>
+            <hr />
+            <p class="card-text" style="white-space: pre-line">
+              <%-posts[i].content%>
+            </p>
+            <div class="proTime">
+              <a href="#"><%=posts[i].date%></a>
+              <!-- <a href="#" class="btn btn-outline-secondary"></a> -->
+            </div>
+          </div>
+        </div>
+        <div class="delete"><img src="/delete.svg" alt="刪除" /></div>
+        <% } %>
+      </section>
+    </div>
   </body>
 </html>

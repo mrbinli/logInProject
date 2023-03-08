@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "myFont";
+  src: url("/GenSekiGothic-B.ttc");
+}
+
+* {
+  font-family: "myFont", DFkai-sb, sans-serif;
+}
+body {
+  /* 設定最小寬度為 600px */
+  min-width: 350px;
+  background-image: url("/backimg.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh; /* 設置body高度為100%視窗高度 */
+  filter {
+    background-color: rgba(149, 166, 173, 0.267);
+  }
+}
+
+p {
+  color: rgb(241, 255, 253);
+}
+//index.ejs
+.slideshow-container {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* 将子元素垂直排列 */
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: rgba(95, 92, 88, 0.493);
+  height: 500px;
+  border: 1px solid #9e9999;
+  div.mySlides {
+    display: none;
+    text-align: center; /* 水平居中 */
+
+    p {
+      font-size: 30px;
+    }
+  }
+}
+.dot-container {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  //   position: absolute;
+  .dot {
+    display: inline-block; /* 将子元素垂直排列 */
+    height: 20px;
+    width: 20px;
+    margin: 20px 15px;
+    background-color: #f3f3f3a4;
+    border-radius: 50%;
+
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+  }
+  .dot:active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
+}
+
+//profile
+section.user-info {
+  margin-left: 3rem;
+  margin-top: 2rem;
+  color: aliceblue;
+}
+section.posts {
+  display: flex;
+  flex-wrap: wrap;
+  /* 其他樣式設定 */
+  div.car {
+    width: 18rem;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 20px;
+    background-color: rgba(148, 148, 148, 0.452);
+    transition: all 0.5s ease;
+
+    div.card-body {
+      // background: linear-gradient(90deg, #c7c7c7a6, #4f515398);
+      h5.cardt {
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+      }
+      hr {
+        color: rgb(255, 255, 255);
+        border-style: solid;
+        border-color: rgb(255, 255, 255);
+        border-width: 2px;
+      }
+      p {
+        color: rgba(255, 255, 255, 0.699);
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      div.proTime {
+        background-color: rgba(95, 95, 92, 0.11);
+        border-radius: 20px;
+        padding: 6px;
+        border: 3px solid rgba(250, 250, 250, 0.171);
+        transition: all 0.3s ease;
+        a {
+          color: rgba(238, 238, 238, 0.658);
+          text-decoration: none;
+          transition: all 0.3s ease;
+          font-size: 14px;
+        }
+        a:hover {
+          color: rgb(255, 255, 255);
+          text-decoration: none;
+        }
+      }
+    }
+    &:hover {
+      background-color: rgba(63, 63, 63, 0.671);
+
+      & > div.card-body > div.proTime {
+        color: rgb(255, 255, 255);
+        background-color: rgba(95, 95, 92, 0.678);
+      }
+
+      & > div.card-body > p {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+  div.delete {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: rgba(221, 221, 221, 0.452);
+    img {
+      opacity: 0.2;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+      &:active {
+        transform: scale(1.2);
+      }
+    }
+  }
+  //   div.car:hover {
+  //     background-color: rgba(63, 63, 63, 0.671);
+  //     p {
+  //       color: rgb(255, 255, 255);
+  //     }
+  //   }
+}
+
+@media screen and (max-width: 703px) {
+  section.posts {
+    display: block;
+    margin-left: 3rem; /* 让 section 元素居中 */
+    /* 其他样式设置 */
+  }
+}

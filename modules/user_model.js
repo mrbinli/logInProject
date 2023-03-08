@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
   },
   thumbnail: {
     type: String,
+    default: "/default_profile_picture.png",
   },
   //local login
   email: {
