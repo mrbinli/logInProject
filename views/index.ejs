@@ -7,25 +7,24 @@
   </head>
   <body>
     <%- include ("partials/nav") %>
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1>個人文案紀錄系統</h1>
-        <p class="col-md-8 fs-4">
-          支援Google登入與本地登入系統，EJS、MongoDB、Passport.js、Authentication、OAuth(Google
-          Login Setup) 和其他範例。
-        </p>
-        <button
-          class="btn btn-info btn-lg"
-          type="button"
-          style="color: rgb(0, 0, 0)"
-        >
-          <a href="/auth/login"> 寫下我的詩</a>
-        </button>
-      </div>
-    </div>
-    <div class="p-5 mb-4 container-fluid py-5">
+
+    <div class="homeTitle">
+      <h1>個人詩詞記載</h1>
       <p>
-        使用Google帳號或直接註冊帳號，登入後可以寫下隨筆，系統將會記錄你的儲存時間!
+        支援Google登入與本地登入系統，EJS、MongoDB、Passport.js、<br />Authentication、OAuth(Google
+        Login Setup) 和其它範例。
+      </p>
+      <% if (!user) { %>
+      <div class="homeBtn">
+        <a href="/auth/login"> 寫下我的詩</a>
+      </div>
+      <% } %>
+    </div>
+
+    <div class="explain">
+      <p>
+        歡迎來到這個網頁！<br />這是一個詩歌紀錄網站，<br />
+        您能使用Google帳號或本地帳號進行登入，<br />登入後可以點擊「寫一首詩」寫下隨筆，<br />系統將記錄你寫下的內容<br />(在你自己的個人檔案與資料庫中)，<br />祝您享受這個網站！
       </p>
     </div>
     <div class="slideshow-container">
@@ -42,26 +41,40 @@
       </div>
     </div>
     <div class="dot-container">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+      <span class="dot" data-slide-index="1" onclick="showSlides(1)"></span>
+      <span class="dot" data-slide-index="2" onclick="showSlides(2)"></span>
+      <span class="dot" data-slide-index="3" onclick="showSlides(3)"></span>
     </div>
     <script>
-      let slideIndex = 0;
+      let slideIndex = 1;
+      let slideTimeout = null;
 
-      function showSlides() {
+      function showSlides(slideNumber) {
+        clearTimeout(slideTimeout);
         let i;
         let slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
+        let dots = document.getElementsByClassName("dot");
+        if (slideNumber) {
+          slideIndex = slideNumber;
         }
-        slideIndex++;
         if (slideIndex > slides.length) {
           slideIndex = 1;
         }
+        if (slideIndex < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
         slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 5000); // 更改时间间隔
+        dots[slideIndex - 1].className += " active";
+        slideTimeout = setTimeout(() => showSlides(), 2000, slideIndex + 1); // 傳遞 slideIndex + 1 作為參數
       }
+
       showSlides();
     </script>
   </body>

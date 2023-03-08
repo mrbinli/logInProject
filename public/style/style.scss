@@ -15,53 +15,94 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh; /* 設置body高度為100%視窗高度 */
-  filter {
-    background-color: rgba(149, 166, 173, 0.267);
+}
+
+//index.ejs
+.homeTitle {
+  width: 100vw;
+  height: 250px;
+  color: #ffffff;
+  h1,
+  p {
+    margin: 2rem 2rem;
+  }
+  p {
+    text-align: center;
+    font-size: 18px;
+  }
+  div.homeBtn {
+    display: flex;
+    justify-content: center;
+    a {
+      color: black;
+      text-decoration: none;
+      padding: 8px 8px;
+      background-color: rgba(226, 226, 226, 0.795);
+      transition: all 0.1s ease-in;
+      border-radius: 10px;
+    }
+    a:hover {
+      background-color: rgb(51, 126, 113);
+      color: #ffffff;
+    }
+    a:active {
+      scale: 0.95;
+    }
   }
 }
 
-p {
-  color: rgb(241, 255, 253);
-}
-//index.ejs
-.slideshow-container {
-  position: relative;
+.explain {
   display: flex;
-  flex-direction: column; /* 将子元素垂直排列 */
+  flex-direction: column;
+  width: 100vw;
+  height: 400px;
+  background-color: #ffffff4b;
+
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+}
+.slideshow-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
   background-color: rgba(95, 92, 88, 0.493);
-  height: 500px;
-  border: 1px solid #9e9999;
+  height: 400px;
   div.mySlides {
     display: none;
     text-align: center; /* 水平居中 */
-
-    p {
+    color: white;
+    h5 {
       font-size: 30px;
+      margin-bottom: 3rem;
+    }
+    p {
+      font-size: 24px;
     }
   }
 }
 .dot-container {
   text-align: center;
-  align-items: center;
-  justify-content: center;
-  //   position: absolute;
   .dot {
     display: inline-block; /* 将子元素垂直排列 */
     height: 20px;
     width: 20px;
     margin: 20px 15px;
-    background-color: #f3f3f3a4;
+    background-color: rgba(226, 226, 226, 0.795);
     border-radius: 50%;
 
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in;
   }
   .dot:active {
-    background-color: #ffffff;
     transform: scale(1.2);
+    border: 2px solid rgba(255, 255, 255, 0.712);
+  }
+  .dot:hover {
+    background-color: rgb(79, 172, 156);
   }
 }
 
@@ -148,18 +189,30 @@ section.posts {
       }
     }
   }
-  //   div.car:hover {
-  //     background-color: rgba(63, 63, 63, 0.671);
-  //     p {
-  //       color: rgb(255, 255, 255);
-  //     }
-  //   }
 }
-
+@media screen and (max-width: 595px) {
+  div.homeTitle {
+    p {
+      margin: 1rem 2rem;
+    }
+  }
+}
 @media screen and (max-width: 703px) {
   section.posts {
     display: block;
     margin-left: 3rem; /* 让 section 元素居中 */
     /* 其他样式设置 */
+  }
+}
+@media screen and (max-width: 1170px) {
+  body {
+    /* 設定最小寬度為 600px */
+    min-width: 350px;
+    background-image: url("/backimg.jpg");
+
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    height: 120vh; /* 設置body高度為100%視窗高度 */
   }
 }
