@@ -7,30 +7,44 @@
   </head>
   <body>
     <%- include ("partials/nav") %>
-    <main style="padding: 3rem">
-      <%- include ("partials/message") %>
-      <form action="/profile/post" method="POST">
-        <div class="form-group">
-          <label for="exampleforTitle">標題：</label>
-          <input
-            name="title"
-            type="text"
-            class="form-control"
-            id="exampleforTitle"
-          />
-        </div>
-        <br />
-        <div class="form-group">
-          <label for="exampleforContent">內容：</label>
-          <textarea
-            class="form-control"
-            id="exampleforContent"
-            aria-describedby="emailHelp"
-            name="content"
-          /></textarea>
-        <br />
-        <button type="submit" class="btn btn-primary">提交Post</button>
-      </form>
-    </main>
+    <div class="logreg-box">
+      <div class="form-box login">
+        <form action="/profile/post" method="POST">
+          <%- include ("partials/message") %>
+          <div class="input-box">
+            <input name="title" type="text" id="exampleforTitle" required />
+            <label for="exampleforTitle">標題</label>
+          </div>
+          <br />
+          <div class="input-box">
+            <textarea
+              id="exampleforContent"
+              aria-describedby="emailHelp"
+              name="content"
+              required
+              oninput="autoResize(this)"
+            ></textarea>
+            <label for="exampleforContent">內容</label>
+          </div>
+          <br />
+          <button class="input-box loginBtn">提交Post</button>
+        </form>
+      </div>
+    </div>
   </body>
+  <script>
+    function autoResize(textarea) {
+      const value = textarea.value.trim();
+      if (value === "") {
+        textarea.style.height = "auto";
+        const inputBox = textarea.parentNode;
+        inputBox.style.height = "50px";
+      } else {
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + 20 + "px";
+        const inputBox = textarea.parentNode;
+        inputBox.style.height = textarea.style.height;
+      }
+    }
+  </script>
 </html>

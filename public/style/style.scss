@@ -190,10 +190,144 @@ section.posts {
     }
   }
 }
+
+//login & signUp & post
+.googleBtn {
+  // display: flex;
+  // justify-content: center;
+  font-size: 20px;
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 8px 8px;
+    background-color: rgba(226, 226, 226, 0.795);
+    transition: all 0.1s ease-in;
+    border-radius: 10px;
+  }
+  a:hover {
+    background-color: rgb(51, 126, 113);
+    color: #ffffff;
+  }
+  a:active {
+    scale: 0.95;
+  }
+}
+.logreg-box {
+  h5 {
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  .form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #4949493d;
+    padding: 20px 20px;
+    border-radius: 30px;
+    .input-box {
+      position: relative;
+      width: 400px;
+      transition: width 0.5s ease-in-out;
+      transition: height 0.2s ease-in-out;
+      height: 50px;
+      min-height: 50px;
+      border-bottom: 2px solid #e4e4e4;
+      margin: 50px 0;
+      span.icon {
+        position: absolute;
+        right: 0;
+        top: 13px;
+        font-size: 19px;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      small {
+        font-size: 16px;
+        color: rgb(243, 243, 243);
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #ffffff;
+      }
+      textarea {
+        resize: vertical; /* 只能在垂直方向上調整大小 */
+        width: 100%;
+        height: auto;
+
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        overflow-y: hidden;
+      }
+      label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #ffffff73;
+        font-weight: 500;
+        pointer-events: none;
+        transition: 0.5s ease;
+      }
+      input:focus ~ label,
+      input:valid ~ label {
+        top: -5px;
+      }
+      textarea:focus ~ label,
+      textarea:valid ~ label {
+        top: -5px;
+      }
+    }
+    .loginBtn {
+      display: flex;
+      justify-content: center; //文字居中(橫的)
+      align-items: center; //文字在方塊中居中(直的)
+      width: 100px;
+      margin: auto;
+      color: black;
+      text-decoration: none;
+      background-color: rgba(226, 226, 226, 0.795);
+      transition: all 0.1s ease-in;
+      border: none;
+      border-radius: 10px;
+      &:hover {
+        background-color: rgb(51, 126, 113);
+        color: #ffffff;
+      }
+      &:active {
+        scale: 0.95;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 595px) {
   div.homeTitle {
     p {
       margin: 1rem 2rem;
+    }
+  }
+  .logreg-box {
+    .form-box {
+      .input-box {
+        width: 320px;
+      }
     }
   }
 }
@@ -204,7 +338,7 @@ section.posts {
     /* 其他样式设置 */
   }
 }
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1685px) {
   body {
     /* 設定最小寬度為 600px */
     min-width: 350px;

@@ -184,9 +184,134 @@ section.posts div.delete img:active {
   transform: scale(1.2);
 }
 
+.googleBtn {
+  font-size: 20px;
+}
+.googleBtn a {
+  color: black;
+  text-decoration: none;
+  padding: 8px 8px;
+  background-color: rgba(226, 226, 226, 0.795);
+  transition: all 0.1s ease-in;
+  border-radius: 10px;
+}
+.googleBtn a:hover {
+  background-color: rgb(51, 126, 113);
+  color: #ffffff;
+}
+.googleBtn a:active {
+  scale: 0.95;
+}
+
+.logreg-box h5 {
+  color: white;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.logreg-box .form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: rgba(73, 73, 73, 0.2392156863);
+  padding: 20px 20px;
+  border-radius: 30px;
+}
+.logreg-box .form-box .input-box {
+  position: relative;
+  width: 400px;
+  transition: width 0.5s ease-in-out;
+  transition: height 0.2s ease-in-out;
+  height: 50px;
+  min-height: 50px;
+  border-bottom: 2px solid #e4e4e4;
+  margin: 50px 0;
+}
+.logreg-box .form-box .input-box span.icon {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  font-size: 19px;
+}
+.logreg-box .form-box .input-box span.icon img {
+  width: 30px;
+  height: 30px;
+}
+.logreg-box .form-box .input-box small {
+  font-size: 16px;
+  color: rgb(243, 243, 243);
+}
+.logreg-box .form-box .input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+}
+.logreg-box .form-box .input-box textarea {
+  resize: vertical; /* 只能在垂直方向上調整大小 */
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  overflow-y: hidden;
+}
+.logreg-box .form-box .input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4509803922);
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+.logreg-box .form-box .input-box input:focus ~ label,
+.logreg-box .form-box .input-box input:valid ~ label {
+  top: -5px;
+}
+.logreg-box .form-box .input-box textarea:focus ~ label,
+.logreg-box .form-box .input-box textarea:valid ~ label {
+  top: -5px;
+}
+.logreg-box .form-box .loginBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  margin: auto;
+  color: black;
+  text-decoration: none;
+  background-color: rgba(226, 226, 226, 0.795);
+  transition: all 0.1s ease-in;
+  border: none;
+  border-radius: 10px;
+}
+.logreg-box .form-box .loginBtn:hover {
+  background-color: rgb(51, 126, 113);
+  color: #ffffff;
+}
+.logreg-box .form-box .loginBtn:active {
+  scale: 0.95;
+}
+
 @media screen and (max-width: 595px) {
   div.homeTitle p {
     margin: 1rem 2rem;
+  }
+  .logreg-box .form-box .input-box {
+    width: 320px;
   }
 }
 @media screen and (max-width: 703px) {
@@ -196,7 +321,7 @@ section.posts div.delete img:active {
     /* 其他样式设置 */
   }
 }
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1685px) {
   body {
     /* 設定最小寬度為 600px */
     min-width: 350px;
